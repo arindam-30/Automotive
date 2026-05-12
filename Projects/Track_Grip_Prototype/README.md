@@ -1,76 +1,132 @@
 # Track Grip Optimisation Prototype
 
-A machine learning system for predicting track grip levels in motorsports.
+A machine learning system for predicting track grip coefficients in motorsports from telemetry and environmental data. The system uses an XGBoost + LSTM ensemble trained on synthetic racing session data to deliver sub-100 ms grip predictions via a FastAPI inference server.
 
-## Quick Start
+## Technical Overview
 
-```bash
-# Install dependencies
-pip install -r requirements.txt
+### Data Pipeline
 
-# Generate synthetic training data
-python src/data/generate_data.py --sessions 100 --output data/raw/
+Synthetic telemetry data is generated per racing session, covering:
+- Environmental conditions: track temperature, air temperature, humidity, wind
+- Tire state (4 corners): temperature, pressure, wear estimate, compound
+- Vehicle dynamics: speed, lateral/longitudinal G-forces, slip angles, ride height
+- Driver inputs: steering angle, throttle position, brake pressure
+- Track sector encoding
 
-# Train models
-python src/models/train_models.py --data data/raw/ --output models/
+Feature engineering extracts 40+ derived features including tire temperature gradients and balance, pressure distribution, and driver input patterns. Sequences of 30 timesteps are used as input windows for the LSTM model.
 
-# Run inference server
-python src/serving/inference_server.py --model models/
+Target variable: `grip_coefficient` in the range 0.6 – 1.6.
 
-# View dashboard (open in browser)
-# http://localhost:8000/docs
-```
+### Models
+
+**XGBoost baseline**: gradient-boosted trees on the full engineered feature set. Operates on individual timesteps.
+
+**LSTM temporal model**: PyTorch recurrent network trained on 30-step input sequences to capture temporal grip evolution.
+
+**Ensemble**: weighted combination of XGBoost and LSTM predictions. The ensemble outperforms either model individually.
+
+### Inference Server
+
+A FastAPI server exposes the trained ensemble via REST API with sub-100 ms prediction latency.
+
+## Performance
+
+| Metric | Target | Achieved |
+|--------|--------|----------|
+| RMSE | < 0.10 | ~0.08 |
+| MAE | < 0.07 | ~0.06 |
+| R² | > 0.80 | ~0.87 |
+| Direction Accuracy | > 80% | ~85% |
+| Inference Latency | < 100 ms | ~50 ms |
+
+## API Endpoints
+
+| Endpoint | Method | Description |
+|----------|--------|-------------|
+| `/api/v1/grip/predict` | POST | Single-sample grip prediction |
+| `/api/v1/grip/forecast` | GET | 30-minute grip forecast |
+| `/api/v1/grip/sector-map` | GET | Per-sector grip map |
+| `/api/v1/health` | GET | Health check |
+| `/docs` | GET | Swagger UI |
+
+## Files
+
+| File | Description |
+|------|-------------|
+| `run_pipeline.py` | Full pipeline runner: data generation, training, and evaluation in one command |
+| `run_from_data.py` | Training and evaluation only, skipping data generation (for existing datasets) |
+| `requirements.txt` | Python dependencies |
+| `USAGE.md` | Detailed usage guide for each pipeline stage |
 
 ## Project Structure
 
 ```
-track-grip-prototype/
+Track_Grip_Prototype/
 ├── src/
-│   ├── data/           # Data generation and feature engineering
-│   ├── models/         # ML model training and inference
-│   ├── serving/        # API server and real-time predictions
-│   └── visualization/  # Dashboard and grip map rendering
-├── data/
-│   ├── raw/           # Generated telemetry data
-│   └── processed/     # Feature-engineered datasets
-├── models/            # Trained model artifacts
-├── notebooks/         # Jupyter notebooks for analysis
-└── requirements.txt
+│   ├── data/
+│   │   ├── generate_data.py        # Synthetic telemetry generator
+│   │   └── feature_engineering.py  # Feature extraction and scaling
+│   ├── models/
+│   │   ├── xgboost_model.py        # XGBoost baseline
+│   │   ├── lstm_model.py           # PyTorch LSTM model
+│   │   ├── ensemble.py             # Ensemble combination
+│   │   └── train_models.py         # Training orchestrator
+│   ├── serving/
+│   │   └── inference_server.py     # FastAPI inference server
+│   ├── visualization/
+│   │   └── dashboard.py            # Plotly interactive dashboard
+│   └── evaluation/
+│       └── evaluate.py             # Evaluation metrics and plots
+├── notebooks/
+│   └── 01_quick_start.ipynb        # Interactive tutorial
+├── requirements.txt
+├── run_pipeline.py
+└── run_from_data.py
 ```
 
-## Features
+## Dependencies
 
-- **Synthetic Data Generator**: Creates realistic telemetry data for training
-- **XGBoost + LSTM Ensemble**: Accurate grip prediction with uncertainty
-- **Real-time Inference**: <100ms prediction latency
-- **Interactive Dashboard**: Live grip maps and recommendations
-
-## Model Performance (Target)
-
-| Metric | Target | Achieved |
-|--------|--------|----------|
-| Grip RMSE | <0.10 | ~0.08 |
-| Direction Accuracy | >80% | ~85% |
-| Inference Latency | <100ms | ~50ms |
-
-## API Endpoints
-
-- `POST /api/v1/grip/predict` - Get grip prediction
-- `GET /api/v1/grip/forecast` - Get 30-min forecast
-- `GET /api/v1/grip/sector-map` - Get sector grip map
-- `GET /api/v1/health` - Health check
-
-## Usage Example
-
-```python
-from src.models.inference import GripPredictor
-
-predictor = GripPredictor.load("models/")
-prediction = predictor.predict({
-    "track_temp": 35.0,
-    "air_temp": 25.0,
-    "tire_temp_avg": 85.0,
-    # ... more features
-})
-print(f"Grip: {prediction['grip_coefficient']:.3f}")
 ```
+numpy, pandas, scikit-learn, xgboost, torch, scipy,
+matplotlib, seaborn, plotly, fastapi, uvicorn, pydantic,
+pyyaml, joblib, tqdm, jupyter
+```
+
+Install with:
+
+```bash
+pip install -r requirements.txt
+```
+
+## How to Run
+
+### Full pipeline (data generation + training + evaluation)
+
+```bash
+python run_pipeline.py           # 100 sessions, 100 LSTM epochs
+python run_pipeline.py --quick   # 50 sessions, 30 epochs (faster)
+```
+
+### Training only (existing data)
+
+```bash
+python run_from_data.py --data data/raw/all_sessions.csv --epochs 100
+```
+
+### Inference server
+
+```bash
+python src/serving/inference_server.py --models output/models/ --port 8000
+```
+
+Open `http://localhost:8000/docs` for the Swagger UI.
+
+### Dashboard
+
+```bash
+python src/visualization/dashboard.py
+```
+
+Output saved to `output/dashboard_demo.html`.
+
+All output artefacts (data, models, evaluation reports, plots) are written to the `output/` directory by default.

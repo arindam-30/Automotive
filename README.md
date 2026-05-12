@@ -1,10 +1,14 @@
-//Author - Arindam_Sharma
+// Author - Arindam_Sharma
 
-//This repository consists of MATLAB scripts which handle various vehicle dynamcis simulations in different scenarios. 
+// This repository consists of projects covering vehicle dynamics simulations, data analysis, and machine learning applied to automotive and motorsport engineering.
 
-// The structure is -> Automotive -> (ModelName)
+// Structure -> Automotive -> Projects -> (ProjectName)
+//                        -> Certificates
 
-//Current Models -
-//1. Quarter Car Model
-//2. Longitudinal Model
-
+// Current Projects -
+// 1. Quarter Car Model
+// 2. Longitudinal Model
+// 3. Lateral Model
+// 4. Data Analysis Project
+// 5. Track Grip Prototype
+// 6. DL Surrogate Model (00_introduction)

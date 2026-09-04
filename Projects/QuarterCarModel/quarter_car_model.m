@@ -1,34 +1,6 @@
 function quarter_car_model()
 % =========================================================
-%   QUARTER CAR MODEL  --  Vehicle Dynamics (First Principles)
-%   Interactive viewer: slider scrubber, Play/Pause, speed
-%   Author : Vehicle Dynamics Engineer  |  Date : 2026
-%
-%   HOW TO RUN: type   quarter_car_model   in the Command Window
-%               or press the green Run button.
-%
-%   System schematic (vertical, positive upward):
-%
-%         [  ms  ]  <- Sprung mass (car body)
-%            |  |
-%           Ks  Cs   <- Suspension spring & damper
-%            |  |
-%         [  mu  ]  <- Unsprung mass (wheel / tyre)
-%            |  |
-%           Kt  Ct   <- Tyre stiffness & structural damping
-%            |  |
-%          ======   <- Road input  z_r(t)
-%
-%   EOM (Newton 2nd Law, free-body diagram):
-%     ms*z_s'' = -Ks*(zs-zu) - Cs*(zs'-zu')
-%     mu*z_u'' =  Ks*(zs-zu) + Cs*(zs'-zu')
-%               - Kt*(zu-zr) - Ct*(zu'-zr')
-%
-%   State : X = [zs, zs', zu, zu']'     Input : u = [zr, zr']'
-% =========================================================
-
 clc; close all;
-
 % =========================================================
 %  1. VEHICLE PARAMETERS
 % =========================================================

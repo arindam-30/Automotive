@@ -1,0 +1,65 @@
+% Load motor characteristic curve
+mot.wm   = [0 1500 2000 2500 3000 3500 4000 4500 5000 5500 6000 6500 7000 7500 8000 8500 9000]*(2*pi)/60; % [rad/s] motor angular speed table
+mot.Tm   = [0 510 517.5 521.25 532.5 562.5 585 585 585 585 585 585 575 550 520 480 445];           % [Nm]    motor maximum driving torque
+mot.Tb   = 0*mot.Tm;         % [Nm]    motor braking torque is set to zero for simplicity
+mot.Wmax = mot.Tm.*mot.wm;           % [W]     motor maximum power
+mot.tau  = 50e-3;                    % [s]     motor time constant
+gamma_vals = [0.2 0.4 0.6 0.8 1.0];
+colors = lines(length(gamma_vals));
+figure;
+hold on; grid on;
+for k = 1:length(gamma_vals)
+    gamma = gamma_vals(k);
+    plot(mot.wm, mot.Tm * gamma, 'LineWidth', 1.5, 'Color', colors(k,:));
+end
+legend(arrayfun(@(g) sprintf('\\gamma = %.1f',g), gamma_vals, 'UniformOutput', false), 'Location','Best');
+xlabel('Motor speed [rad/s]');
+ylabel('Motor torque [Nm]');
+title('Motor Torque vs Speed for Different \gamma Values');
+% % Driveline parameters
+mot.WD        = 0;  % [-] front/total torque distribution 1 FWD, 0 RWD, 0.5 4WD
+mot.gearFinal = 4.8; % [-] final gear ratio
+
+% ICE vehicle
+% Driveline gear ratios
+mot.gearRatios = [3.025 1.958 1.435005 1.115004 0.9257138 0.7800001 0.67];
+figure;
+colors = lines(length(mot.gearRatios));
+hold on; grid on;
+for ii = 1:length(mot.gearRatios)
+    v(:,ii)   = mot.wm / (mot.gearRatios(ii) * mot.gearFinal) * tir.Re; % compute the max speed of the vehicle for each gear ratio
+    F(:,ii)   = mot.Tm * (mot.gearRatios(ii) * mot.gearFinal) / tir.Re; % compute the max force on the wheels of the vehicle for each gear ratio
+    % motor driving force versus speed for each gear with distinct color
+    plot( v(:,ii)*3.6, F(:,ii), 'Color', colors(ii,:), 'LineWidth', 1.5 ); 
+end
+xlabel('Vehicle speed [km/h]');
+ylabel('Wheel force [N]');
+title('Motor Driving Force vs Speed by Gear');
+legend(arrayfun(@(g) sprintf('Gear %d (Ratio = %.3f)', g, mot.gearRatios(g)), 1:length(mot.gearRatios), 'UniformOutput', false), 'Location', 'Best');
+hold off;
+
+mot.vx = ( 0: 1: floor(max(max(v))*3.6) )/3.6; % vehicle speed in [m/s] for motor lookup table
+
+kk = 1; 
+for ii = 1:length( mot.vx )
+    if ( mot.vx(ii) > min(min(v)) ) && ( mot.vx(ii) < max(max(v)) )  % if the vehicle speed ii is feasible for the car configuration selected
+        if max(v(:,kk)) < mot.vx(ii) % if the vehicle speed ii is not feasible for the selected gear ratio
+            kk = kk + 1; % change gear ratio with the next one
+        end
+     mot.Fm(ii)  = interp1( v(:,kk), F(:,kk), mot.vx(ii) ); % calculate the maximumm driving force at the wheels
+     mot.gearTau(ii) = mot.gearFinal*mot.gearRatios(kk); % gear ratio for the selected vehicle speed
+        else
+            mot.Fm(ii) = 0;
+            mot.gearTau(ii) = 0;
+    end
+end
+mot.w   = mot.vx/tir.Re; % [rad/s] angular speed of the wheels
+mot.Tw  = mot.Fm*tir.Re; % [Nm] torque at the wheels
+
+clear v F
+
+figure;
+plot( mot.vx*3.6, mot.Fm,'r','linewidth',2 ); grid on;
+xlabel('v_x [km/h]');
+ylabel('F_{mot} [N]');
+title('Maximum Motor Driving Force vs Vehicle Speed');

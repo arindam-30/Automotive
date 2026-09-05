@@ -25,7 +25,8 @@
   .hero-media::before { display: none; }
   .about-grid { grid-template-columns: 1fr; }
   .about-lead { flex-direction: row; align-items: center; gap: 20px; }
-  .about-lead .img-placeholder.portrait { max-width: 96px; flex-shrink: 0; }
+  .about-lead .img-placeholder.portrait,
+  .about-lead .img-portrait { max-width: 96px; flex-shrink: 0; }
   .project-slide-inner,
   .project-slide-inner.reverse {
     grid-template-columns: 1fr;
@@ -94,7 +95,8 @@
   :root { --rail-margin: 12px; }
   .hero-stats { gap: 24px; }
   .about-lead { flex-direction: column; align-items: flex-start; }
-  .about-lead .img-placeholder.portrait { max-width: 140px; }
+  .about-lead .img-placeholder.portrait,
+  .about-lead .img-portrait { max-width: 140px; }
   .project-grid { grid-template-columns: 1fr; }
   .footer-inner { flex-direction: column; gap: 8px; text-align: center; }
 }

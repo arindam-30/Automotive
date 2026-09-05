@@ -101,6 +101,46 @@ document.addEventListener('keydown', (event) => {
   }
 });
 
+// Photo galleries (project detail panels with multiple photos): prev/next
+// arrows plus a 3s auto-advancing slideshow by default. Manual navigation
+// resets the timer rather than fighting it.
+document.querySelectorAll('[data-gallery]').forEach((gallery) => {
+  const photos = [...gallery.querySelectorAll('.photo-gallery-img')];
+  const prevBtn = gallery.querySelector('.gallery-arrow-prev');
+  const nextBtn = gallery.querySelector('.gallery-arrow-next');
+  const counterCurrent = gallery.querySelector('.gallery-counter-current');
+  if (photos.length <= 1) return;
+
+  const interval = Number(gallery.dataset.interval) || 3000;
+  let index = photos.findIndex((img) => img.classList.contains('is-active'));
+  if (index < 0) index = 0;
+  let timer = null;
+
+  const show = (i) => {
+    index = (i + photos.length) % photos.length;
+    photos.forEach((img, n) => img.classList.toggle('is-active', n === index));
+    if (counterCurrent) counterCurrent.textContent = String(index + 1);
+  };
+
+  const restartTimer = () => {
+    if (timer) clearInterval(timer);
+    timer = setInterval(() => show(index + 1), interval);
+  };
+
+  prevBtn.addEventListener('click', (event) => {
+    event.stopPropagation();
+    show(index - 1);
+    restartTimer();
+  });
+  nextBtn.addEventListener('click', (event) => {
+    event.stopPropagation();
+    show(index + 1);
+    restartTimer();
+  });
+
+  restartTimer();
+});
+
 // Certificate detail overlay: same pattern as the project overlay, opened
 // from the "Certificates" heading or any certificate card
 const certOverlay = document.getElementById('certOverlay');

@@ -1,0 +1,784 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Arindam Sharma | Vehicle Dynamics &amp; Motorsport Engineer</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+<link rel="stylesheet" href="mobile.css" id="mobileStyles">
+</head>
+<body>
+
+<div class="scroll-progress"><div class="scroll-progress-fill" id="scrollProgressFill"></div></div>
+
+<button type="button" class="desktop-view-exit" id="desktopViewExit">&times; Exit Desktop View</button>
+
+<div class="frame">
+
+<header class="nav" id="top">
+  <div class="nav-inner">
+    <a href="#top" class="nav-brand">
+      <span class="nav-mark">AS</span>
+      <span class="nav-name">Arindam Sharma</span>
+    </a>
+    <nav class="nav-links">
+      <a href="#about">About</a>
+      <a href="#education">Education</a>
+      <a href="#projects">Projects</a>
+      <a href="#skills">Skills</a>
+      <a href="#certificates">Certificates</a>
+      <a href="#contact">Contact</a>
+      <button type="button" class="desktop-view-toggle" id="desktopViewToggle">Switch to Desktop View</button>
+    </nav>
+    <div class="nav-status">
+      <span class="status-dot"></span>
+      <span>Open to opportunities</span>
+    </div>
+    <button class="nav-toggle" id="navToggle" aria-label="Toggle menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<main>
+
+  <!-- HERO -->
+  <section class="hero" id="hero">
+    <div class="hero-inner">
+      <div class="hero-copy reveal">
+        <h1>Welcome to my <span class="accent-text">engineering portfolio</span>.</h1>
+        <p class="hero-sub">
+          MS Automotive &amp; Motorsports student at Politecnico di Milano with four years of
+          Formula Student engineering experience: building vehicle models, tuning suspension
+          setups, and turning telemetry into performance gains.
+        </p>
+        <div class="hero-actions">
+          <a href="#projects" class="btn btn-primary">View Projects</a>
+          <a href="CV_Arindam.pdf" class="btn btn-secondary" download>Download CV</a>
+        </div>
+        <div class="hero-stats">
+          <div class="stat">
+            <span class="stat-num">4+</span>
+            <span class="stat-label">Years in Formula Student</span>
+          </div>
+          <div class="stat">
+            <span class="stat-num">2</span>
+            <span class="stat-label">Combustion cars developed</span>
+          </div>
+          <div class="stat">
+            <span class="stat-num">3</span>
+            <span class="stat-label">Competitions: Bharat, East, Germany</span>
+          </div>
+        </div>
+      </div>
+      <div class="hero-media reveal">
+        <img class="hero-photo" src="formula student 2.jpeg" alt="Pravega Racing Formula Student car on track at the start line">
+      </div>
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section class="about" id="about">
+    <div class="section-inner">
+      <div class="about-grid">
+        <div class="about-lead reveal">
+          <div class="img-placeholder portrait" data-label="Portrait"></div>
+          <h2>About Me</h2>
+        </div>
+        <div class="about-body reveal">
+          <p>
+            I'm a Masters student in Automotive Engineering &amp; Motorsports at Politecnico di
+            Milano, specialising in vehicle dynamics and dynamic system simulation. Over four years
+            with Pravega Racing's Formula Student team, I've worked across suspension kinematics,
+            drivetrain design, vehicle setup, and on-track testing, correlating simulation against
+            real test data at Formula Bharat, FS East, and FS Germany.
+          </p>
+          <p>
+            I use MATLAB/Simulink and Python to build longitudinal, lateral, ride, and multibody
+            vehicle models, with a focus on translating simulation and telemetry into concrete
+            performance improvements. I also use LLM-assisted development to accelerate technical
+            workflows, debugging, and exploration of simulation methodologies. As former Team
+            Captain, I led a 30-member engineering team through vehicle development and competition.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- EDUCATION & ACHIEVEMENTS -->
+  <section class="education" id="education">
+    <div class="section-inner">
+      <div class="panel-heading reveal">
+        <h2>Education &amp; Achievements</h2>
+      </div>
+      <div class="panel-fill reveal">
+        <div class="edu-grid">
+          <div class="edu-timeline-block">
+            <h3 class="edu-col-title">Education</h3>
+            <div class="timeline">
+              <div class="timeline-track">
+                <div class="timeline-point">
+                  <span class="timeline-dot"></span>
+                  <span class="timeline-year">2021</span>
+                </div>
+                <div class="timeline-segment">
+                  <div class="timeline-label">
+                    <h4>B.Tech Mechanical Engineering</h4>
+                    <p>VIT Vellore · Grade 9.20 / 10</p>
+                  </div>
+                </div>
+                <div class="timeline-point">
+                  <span class="timeline-dot"></span>
+                  <span class="timeline-year">2025</span>
+                </div>
+                <div class="timeline-segment">
+                  <div class="timeline-label">
+                    <h4>MS Automotive &amp; Motorsports</h4>
+                    <p>Politecnico di Milano · Grade 24.78 / 30</p>
+                  </div>
+                </div>
+                <div class="timeline-point timeline-point--current">
+                  <span class="timeline-dot"></span>
+                  <span class="timeline-year">Ongoing</span>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="achievements-block">
+            <h3 class="edu-col-title">Achievements</h3>
+            <ul class="achievement-list">
+              <li><span class="achv-mark">3rd</span> Overall at Formula Bharat 2025</li>
+              <li><span class="achv-mark">1st</span> Engineering Design &amp; Cost Report at Formula Bharat 2025</li>
+              <li><span class="achv-mark">1st</span> Business Plan Presentation at Formula Bharat 2023</li>
+              <li><span class="achv-mark">2nd</span> Business Plan Presentation at Formula Student East 2023</li>
+              <li><span class="achv-mark">Top 10</span> All Static Events at Formula Student Germany 2023</li>
+              <li><span class="achv-mark">Merit</span> Scholarship, Year 1 at VIT Vellore</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROJECTS -->
+  <section class="projects" id="projects">
+    <div class="section-inner">
+      <div class="projects-heading-trigger reveal" role="button" tabindex="0" data-open-project="project-vehicle-dynamics">
+        <h2>My Projects</h2>
+        <span class="expand-affordance">Expand <span aria-hidden="true">&#10530;</span></span>
+      </div>
+      <p class="projects-sub reveal">A closer look at the vehicle dynamics, data, and powertrain work behind the results. Click any project to explore it in detail.</p>
+
+      <div class="project-grid reveal">
+        <article class="project-card" data-open-project="project-vehicle-dynamics" tabindex="0" role="button">
+          <div class="img-placeholder" data-label="Project image"></div>
+          <div class="project-card-body">
+            <span class="project-index">01 / 06</span>
+            <h3>Vehicle Dynamics Simulation Models</h3>
+            <p>Pacejka MF5.2 tyre models, a 3-DOF longitudinal model, a 4-wheel dual-track lateral
+              model, a PI cruise controller, and a 2-DOF quarter-car ride model, plus double-wishbone
+              suspension kinematics optimised in MSC Adams.</p>
+            <div class="tag-row">
+              <span class="tag">MATLAB</span>
+              <span class="tag">Simulink</span>
+              <span class="tag">MSC Adams</span>
+            </div>
+          </div>
+        </article>
+
+        <article class="project-card" data-open-project="project-telemetry" tabindex="0" role="button">
+          <div class="img-placeholder" data-label="Project image"></div>
+          <div class="project-card-body">
+            <span class="project-index">02 / 06</span>
+            <h3>Telemetry Data Analysis &amp; Filtering</h3>
+            <p>Processed IMU and GPS telemetry with Butterworth filtering to extract speed, steering
+              corrections, peak accelerations, and braking performance; reconstructed vehicle
+              trajectories and automated run-to-run comparison.</p>
+            <div class="tag-row">
+              <span class="tag">MATLAB</span>
+              <span class="tag">Signal Processing</span>
+              <span class="tag">GPS/IMU</span>
+            </div>
+          </div>
+        </article>
+
+        <article class="project-card" data-open-project="project-grip-prediction" tabindex="0" role="button">
+          <div class="img-placeholder" data-label="Project image"></div>
+          <div class="project-card-body">
+            <span class="project-index">03 / 06</span>
+            <h3>AI-Assisted Track Grip Prediction</h3>
+            <p>A TensorFlow deep-learning regression model estimating track grip coefficient from
+              vehicle-dynamics sensor data, with tuned architectures evaluated on MAE and RMSE for
+              setup optimisation.</p>
+            <div class="tag-row">
+              <span class="tag">Python</span>
+              <span class="tag">TensorFlow</span>
+              <span class="tag">Data Science</span>
+            </div>
+          </div>
+        </article>
+
+        <article class="project-card" data-open-project="project-ev-powertrain" tabindex="0" role="button">
+          <div class="img-placeholder" data-label="Project image"></div>
+          <div class="project-card-body">
+            <span class="project-index">04 / 06</span>
+            <h3>FSAE EV Powertrain Design</h3>
+            <p>Rear driveline architecture for a single-motor FSAE EV: shaft geometry, bearing
+              selection, differential integration, plus a parameterised battery model for SOC
+              estimation and thermal-management comparisons.</p>
+            <div class="tag-row">
+              <span class="tag">MATLAB/Simulink</span>
+              <span class="tag">Powertrain</span>
+              <span class="tag">Thermal</span>
+            </div>
+          </div>
+        </article>
+
+        <article class="project-card" data-open-project="project-multibody" tabindex="0" role="button">
+          <div class="img-placeholder" data-label="Project image"></div>
+          <div class="project-card-body">
+            <span class="project-index">05 / 06</span>
+            <h3>14-DOF Multibody Vehicle Model</h3>
+            <p>An ongoing parametric double-wishbone suspension model in Simscape Multibody,
+              integrated into a full-vehicle model for system-level dynamics, targeting a low-cost
+              Driver-in-the-Loop simulator.</p>
+            <div class="tag-row">
+              <span class="tag">Simscape Multibody</span>
+              <span class="tag">Ongoing</span>
+            </div>
+          </div>
+        </article>
+
+        <article class="project-card" data-open-project="project-stability" tabindex="0" role="button">
+          <div class="img-placeholder" data-label="Project image"></div>
+          <div class="project-card-body">
+            <span class="project-index">06 / 06</span>
+            <h3>Stability Analysis &amp; Control Design</h3>
+            <p>Transfer-function and state-space modelling of dynamic systems, with PI/PD controller
+              tuning assessed via Nyquist, root locus, and eigenvalue analysis for closed-loop
+              performance.</p>
+            <div class="tag-row">
+              <span class="tag">MATLAB</span>
+              <span class="tag">Controls</span>
+            </div>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- SKILLS -->
+  <section class="skills" id="skills">
+    <div class="section-inner">
+      <div class="panel-heading panel-heading--mirror reveal">
+        <h2>Skills &amp; Expertise</h2>
+      </div>
+      <div class="panel-fill panel-mirror reveal">
+        <div class="skills-grid">
+          <div class="skills-col">
+            <h3 class="edu-col-title">Technical Skills</h3>
+            <div class="skill-pills">
+              <span class="pill">MATLAB</span>
+              <span class="pill">Simulink</span>
+              <span class="pill">Python</span>
+              <span class="pill">Model-Based Design</span>
+              <span class="pill">CAD (Siemens NX)</span>
+              <span class="pill">CAD (SolidWorks)</span>
+              <span class="pill">Ansys Mechanical</span>
+              <span class="pill">Ansys Fluent</span>
+              <span class="pill">CFD</span>
+              <span class="pill">OpenFOAM</span>
+              <span class="pill">MSC Adams</span>
+              <span class="pill">VI-Grade</span>
+              <span class="pill">Data Analysis</span>
+            </div>
+          </div>
+          <div class="skills-col">
+            <h3 class="edu-col-title">Soft Skills</h3>
+            <div class="skill-pills">
+              <span class="pill">Team Leadership</span>
+              <span class="pill">Team Building</span>
+              <span class="pill">Problem-Solving</span>
+              <span class="pill">Communication</span>
+              <span class="pill">Cross-Functional Collaboration</span>
+              <span class="pill">Project Management</span>
+              <span class="pill">Public Speaking</span>
+              <span class="pill">Time Management</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CERTIFICATES -->
+  <section class="certificates" id="certificates">
+    <div class="section-inner">
+      <div class="projects-heading-trigger reveal" role="button" tabindex="0" data-open-cert="cert-special-achiever">
+        <h2>Certificates</h2>
+        <span class="expand-affordance">Expand <span aria-hidden="true">&#10530;</span></span>
+      </div>
+      <p class="projects-sub reveal">Recognitions from Formula Student competitions, academics, and technical coursework. Click any certificate to view it in detail.</p>
+
+      <div class="project-grid reveal">
+        <article class="project-card cert-card" data-open-cert="cert-special-achiever" tabindex="0" role="button">
+          <img class="cert-thumb" src="certs/cert-special-achiever-award.png" alt="VIT Special Achiever letter of appreciation">
+          <div class="project-card-body">
+            <span class="project-index">01 / 09</span>
+            <h3>Special Achiever Award</h3>
+            <p>Recognized by VIT as a "Special Achiever" for exemplary performance representing the institute at international events, 2023-24.</p>
+            <div class="tag-row">
+              <span class="tag">VIT Vellore</span>
+              <span class="tag">International</span>
+            </div>
+          </div>
+        </article>
+
+        <article class="project-card cert-card" data-open-cert="cert-achiever" tabindex="0" role="button">
+          <img class="cert-thumb" src="certs/cert-achiever-award.png" alt="VIT Achiever letter of appreciation">
+          <div class="project-card-body">
+            <span class="project-index">02 / 09</span>
+            <h3>Achiever Award</h3>
+            <p>Recognized by VIT as an "Achiever" for exemplary performance representing the institute at national events, 2023-24.</p>
+            <div class="tag-row">
+              <span class="tag">VIT Vellore</span>
+              <span class="tag">National</span>
+            </div>
+          </div>
+        </article>
+
+        <article class="project-card cert-card" data-open-cert="cert-merit" tabindex="0" role="button">
+          <img class="cert-thumb" src="certs/cert-merit-scholarship.png" alt="VIT Merit Scholarship certificate">
+          <div class="project-card-body">
+            <span class="project-index">03 / 09</span>
+            <h3>Merit Scholarship</h3>
+            <p>Awarded the Merit Scholarship by VIT for outstanding academic performance in first-year B.Tech Mechanical Engineering, 2021-22.</p>
+            <div class="tag-row">
+              <span class="tag">VIT Vellore</span>
+              <span class="tag">Academics</span>
+            </div>
+          </div>
+        </article>
+
+        <article class="project-card cert-card" data-open-cert="cert-fs-germany" tabindex="0" role="button">
+          <img class="cert-thumb" src="certs/cert-formula-student-germany.png" alt="Formula Student Germany certificate of participation">
+          <div class="project-card-body">
+            <span class="project-index">04 / 09</span>
+            <h3>Formula Student Germany</h3>
+            <p>Competed with the Pravega Racing / VIT Vellore team at Formula Student Germany, Hockenheimring, August 2023.</p>
+            <div class="tag-row">
+              <span class="tag">Formula Student Germany</span>
+              <span class="tag">Team Event</span>
+            </div>
+          </div>
+        </article>
+
+        <article class="project-card cert-card" data-open-cert="cert-fs-east" tabindex="0" role="button">
+          <img class="cert-thumb" src="certs/cert-formula-student-east.png" alt="Formula Student East certificate of participation">
+          <div class="project-card-body">
+            <span class="project-index">05 / 09</span>
+            <h3>Formula Student East</h3>
+            <p>Competed with Pravega Racing (VIT Vellore) at Formula Student East, Hungaroring, August 2023, as one of 30 official team members.</p>
+            <div class="tag-row">
+              <span class="tag">Formula Student East</span>
+              <span class="tag">Team Event</span>
+            </div>
+          </div>
+        </article>
+
+        <article class="project-card cert-card" data-open-cert="cert-formula-bharat" tabindex="0" role="button">
+          <img class="cert-thumb" src="certs/cert-formula-bharat-2025.png" alt="Formula Bharat 2025 certificate of participation">
+          <div class="project-card-body">
+            <span class="project-index">06 / 09</span>
+            <h3>Formula Bharat 2025</h3>
+            <p>Represented Pravega Racing (C08, VIT Vellore) at Formula Bharat 2025, Kari Motor Speedway, Coimbatore, January 2025.</p>
+            <div class="tag-row">
+              <span class="tag">Formula Bharat</span>
+              <span class="tag">Team Event</span>
+            </div>
+          </div>
+        </article>
+
+        <article class="project-card cert-card" data-open-cert="cert-automotive-career" tabindex="0" role="button">
+          <img class="cert-thumb" src="certs/cert-automotive-career-competition.png" alt="Politecnico di Milano Automotive Career Competition certificate">
+          <div class="project-card-body">
+            <span class="project-index">07 / 09</span>
+            <h3>Automotive Career Competition</h3>
+            <p>Placed 3rd with team in the Automotive Career Competition organized by the Career Service at Politecnico di Milano.</p>
+            <div class="tag-row">
+              <span class="tag">Politecnico di Milano</span>
+              <span class="tag">3rd Place</span>
+            </div>
+          </div>
+        </article>
+
+        <article class="project-card cert-card" data-open-cert="cert-simscape-onramp" tabindex="0" role="button">
+          <img class="cert-thumb" src="certs/cert-simscape-onramp.png" alt="MathWorks Simscape Onramp course completion certificate">
+          <div class="project-card-body">
+            <span class="project-index">08 / 09</span>
+            <h3>Simscape Onramp</h3>
+            <p>Completed 100% of MathWorks' self-paced Simscape Onramp training course.</p>
+            <div class="tag-row">
+              <span class="tag">MathWorks</span>
+              <span class="tag">Simulation</span>
+            </div>
+          </div>
+        </article>
+
+        <article class="project-card cert-card" data-open-cert="cert-simscape-multibody" tabindex="0" role="button">
+          <img class="cert-thumb" src="certs/cert-simscape-multibody-onramp.png" alt="MathWorks Multibody Simulation Onramp course completion certificate">
+          <div class="project-card-body">
+            <span class="project-index">09 / 09</span>
+            <h3>Multibody Simulation Onramp</h3>
+            <p>Completed 100% of MathWorks' self-paced Multibody Simulation Onramp training course.</p>
+            <div class="tag-row">
+              <span class="tag">MathWorks</span>
+              <span class="tag">Multibody Dynamics</span>
+            </div>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section class="contact" id="contact">
+    <div class="section-inner">
+      <div class="contact-grid">
+        <div class="contact-intro reveal">
+          <h2>Let's Connect</h2>
+          <p class="contact-sub">Open to opportunities in motorsport and automotive engineering. Pick whichever channel works best and I'll get back to you.</p>
+          <a href="mailto:arindam307662@gmail.com" class="btn btn-primary">Say Hello</a>
+        </div>
+        <div class="contact-channels reveal">
+          <a href="mailto:arindam307662@gmail.com" class="contact-channel">
+            <span class="contact-channel-label">Email</span>
+            <span class="contact-channel-value">arindam307662@gmail.com</span>
+          </a>
+          <a href="https://linkedin.com/in/arindam-sharma-s30" class="contact-channel" target="_blank" rel="noopener">
+            <span class="contact-channel-label">LinkedIn</span>
+            <span class="contact-channel-value">arindam-sharma-s30</span>
+          </a>
+          <a href="https://github.com/arindam-30" class="contact-channel" target="_blank" rel="noopener">
+            <span class="contact-channel-label">GitHub</span>
+            <span class="contact-channel-value">arindam-30</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="footer">
+  <div class="section-inner footer-inner">
+    <span>&copy; 2026 Arindam Sharma</span>
+    <a href="#top">Back to top ↑</a>
+  </div>
+</footer>
+
+</div>
+
+<!-- PROJECT DETAIL OVERLAY -->
+<div class="project-overlay" id="projectOverlay" aria-hidden="true">
+  <button class="project-overlay-close" id="projectOverlayClose" type="button" aria-label="Close project detail view">
+    <span aria-hidden="true">&times;</span> Close
+  </button>
+  <div class="project-overlay-scroll" id="projectOverlayScroll">
+
+    <!-- PROJECT 01 -->
+    <section class="project-slide" id="project-vehicle-dynamics">
+      <div class="project-slide-inner">
+        <div class="project-media reveal">
+          <div class="img-placeholder" data-label="Project image"></div>
+        </div>
+        <div class="project-panel reveal">
+          <span class="project-index">01 / 06</span>
+          <h3>Vehicle Dynamics Simulation Models</h3>
+          <p>Pacejka MF5.2 tyre models, a 3-DOF longitudinal model, a 4-wheel dual-track lateral
+            model, a PI cruise controller, and a 2-DOF quarter-car ride model, plus double-wishbone
+            suspension kinematics optimised in MSC Adams.</p>
+          <div class="tag-row">
+            <span class="tag">MATLAB</span>
+            <span class="tag">Simulink</span>
+            <span class="tag">MSC Adams</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PROJECT 02 -->
+    <section class="project-slide" id="project-telemetry">
+      <div class="project-slide-inner reverse">
+        <div class="project-panel reveal">
+          <span class="project-index">02 / 06</span>
+          <h3>Telemetry Data Analysis &amp; Filtering</h3>
+          <p>Processed IMU and GPS telemetry with Butterworth filtering to extract speed, steering
+            corrections, peak accelerations, and braking performance; reconstructed vehicle
+            trajectories and automated run-to-run comparison.</p>
+          <div class="tag-row">
+            <span class="tag">MATLAB</span>
+            <span class="tag">Signal Processing</span>
+            <span class="tag">GPS/IMU</span>
+          </div>
+        </div>
+        <div class="project-media reveal">
+          <div class="img-placeholder" data-label="Project image"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PROJECT 03 -->
+    <section class="project-slide" id="project-grip-prediction">
+      <div class="project-slide-inner">
+        <div class="project-media reveal">
+          <div class="img-placeholder" data-label="Project image"></div>
+        </div>
+        <div class="project-panel reveal">
+          <span class="project-index">03 / 06</span>
+          <h3>AI-Assisted Track Grip Prediction</h3>
+          <p>A TensorFlow deep-learning regression model estimating track grip coefficient from
+            vehicle-dynamics sensor data, with tuned architectures evaluated on MAE and RMSE for
+            setup optimisation.</p>
+          <div class="tag-row">
+            <span class="tag">Python</span>
+            <span class="tag">TensorFlow</span>
+            <span class="tag">Data Science</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PROJECT 04 -->
+    <section class="project-slide" id="project-ev-powertrain">
+      <div class="project-slide-inner reverse">
+        <div class="project-panel reveal">
+          <span class="project-index">04 / 06</span>
+          <h3>FSAE EV Powertrain Design</h3>
+          <p>Rear driveline architecture for a single-motor FSAE EV: shaft geometry, bearing
+            selection, differential integration, plus a parameterised battery model for SOC
+            estimation and thermal-management comparisons.</p>
+          <div class="tag-row">
+            <span class="tag">MATLAB/Simulink</span>
+            <span class="tag">Powertrain</span>
+            <span class="tag">Thermal</span>
+          </div>
+        </div>
+        <div class="project-media reveal">
+          <div class="img-placeholder" data-label="Project image"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PROJECT 05 -->
+    <section class="project-slide" id="project-multibody">
+      <div class="project-slide-inner">
+        <div class="project-media reveal">
+          <div class="img-placeholder" data-label="Project image"></div>
+        </div>
+        <div class="project-panel reveal">
+          <span class="project-index">05 / 06</span>
+          <h3>14-DOF Multibody Vehicle Model</h3>
+          <p>An ongoing parametric double-wishbone suspension model in Simscape Multibody,
+            integrated into a full-vehicle model for system-level dynamics, targeting a low-cost
+            Driver-in-the-Loop simulator.</p>
+          <div class="tag-row">
+            <span class="tag">Simscape Multibody</span>
+            <span class="tag">Ongoing</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PROJECT 06 -->
+    <section class="project-slide" id="project-stability">
+      <div class="project-slide-inner reverse">
+        <div class="project-panel reveal">
+          <span class="project-index">06 / 06</span>
+          <h3>Stability Analysis &amp; Control Design</h3>
+          <p>Transfer-function and state-space modelling of dynamic systems, with PI/PD controller
+            tuning assessed via Nyquist, root locus, and eigenvalue analysis for closed-loop
+            performance.</p>
+          <div class="tag-row">
+            <span class="tag">MATLAB</span>
+            <span class="tag">Controls</span>
+          </div>
+        </div>
+        <div class="project-media reveal">
+          <div class="img-placeholder" data-label="Project image"></div>
+        </div>
+      </div>
+    </section>
+
+  </div>
+</div>
+
+<!-- CERTIFICATE DETAIL OVERLAY -->
+<div class="project-overlay" id="certOverlay" aria-hidden="true">
+  <button class="project-overlay-close" id="certOverlayClose" type="button" aria-label="Close certificate detail view">
+    <span aria-hidden="true">&times;</span> Close
+  </button>
+  <div class="project-overlay-scroll" id="certOverlayScroll">
+
+    <section class="project-slide" id="cert-special-achiever">
+      <div class="project-slide-inner">
+        <div class="project-media cert-media reveal">
+          <img class="cert-full" src="certs/cert-special-achiever-award.png" alt="VIT Special Achiever letter of appreciation">
+        </div>
+        <div class="project-panel reveal">
+          <span class="project-index">01 / 09</span>
+          <h3>Special Achiever Award</h3>
+          <p>Recognized by VIT as a "Special Achiever" for exemplary performance representing the institute at international events, 2023-24.</p>
+          <div class="tag-row">
+            <span class="tag">VIT Vellore</span>
+            <span class="tag">International</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="project-slide" id="cert-achiever">
+      <div class="project-slide-inner">
+        <div class="project-media cert-media reveal">
+          <img class="cert-full" src="certs/cert-achiever-award.png" alt="VIT Achiever letter of appreciation">
+        </div>
+        <div class="project-panel reveal">
+          <span class="project-index">02 / 09</span>
+          <h3>Achiever Award</h3>
+          <p>Recognized by VIT as an "Achiever" for exemplary performance representing the institute at national events, 2023-24.</p>
+          <div class="tag-row">
+            <span class="tag">VIT Vellore</span>
+            <span class="tag">National</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="project-slide" id="cert-merit">
+      <div class="project-slide-inner">
+        <div class="project-media cert-media reveal">
+          <img class="cert-full" src="certs/cert-merit-scholarship.png" alt="VIT Merit Scholarship certificate">
+        </div>
+        <div class="project-panel reveal">
+          <span class="project-index">03 / 09</span>
+          <h3>Merit Scholarship</h3>
+          <p>Awarded the Merit Scholarship by VIT for outstanding academic performance in first-year B.Tech Mechanical Engineering, 2021-22.</p>
+          <div class="tag-row">
+            <span class="tag">VIT Vellore</span>
+            <span class="tag">Academics</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="project-slide" id="cert-fs-germany">
+      <div class="project-slide-inner">
+        <div class="project-media cert-media reveal">
+          <img class="cert-full" src="certs/cert-formula-student-germany.png" alt="Formula Student Germany certificate of participation">
+        </div>
+        <div class="project-panel reveal">
+          <span class="project-index">04 / 09</span>
+          <h3>Formula Student Germany</h3>
+          <p>Competed with the Pravega Racing / VIT Vellore team at Formula Student Germany, Hockenheimring, August 2023.</p>
+          <div class="tag-row">
+            <span class="tag">Formula Student Germany</span>
+            <span class="tag">Team Event</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="project-slide" id="cert-fs-east">
+      <div class="project-slide-inner">
+        <div class="project-media cert-media reveal">
+          <img class="cert-full" src="certs/cert-formula-student-east.png" alt="Formula Student East certificate of participation">
+        </div>
+        <div class="project-panel reveal">
+          <span class="project-index">05 / 09</span>
+          <h3>Formula Student East</h3>
+          <p>Competed with Pravega Racing (VIT Vellore) at Formula Student East, Hungaroring, August 2023, as one of 30 official team members.</p>
+          <div class="tag-row">
+            <span class="tag">Formula Student East</span>
+            <span class="tag">Team Event</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="project-slide" id="cert-formula-bharat">
+      <div class="project-slide-inner">
+        <div class="project-media cert-media reveal">
+          <img class="cert-full" src="certs/cert-formula-bharat-2025.png" alt="Formula Bharat 2025 certificate of participation">
+        </div>
+        <div class="project-panel reveal">
+          <span class="project-index">06 / 09</span>
+          <h3>Formula Bharat 2025</h3>
+          <p>Represented Pravega Racing (C08, VIT Vellore) at Formula Bharat 2025, Kari Motor Speedway, Coimbatore, January 2025.</p>
+          <div class="tag-row">
+            <span class="tag">Formula Bharat</span>
+            <span class="tag">Team Event</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="project-slide" id="cert-automotive-career">
+      <div class="project-slide-inner">
+        <div class="project-media cert-media reveal">
+          <img class="cert-full" src="certs/cert-automotive-career-competition.png" alt="Politecnico di Milano Automotive Career Competition certificate">
+        </div>
+        <div class="project-panel reveal">
+          <span class="project-index">07 / 09</span>
+          <h3>Automotive Career Competition</h3>
+          <p>Placed 3rd with team in the Automotive Career Competition organized by the Career Service at Politecnico di Milano.</p>
+          <div class="tag-row">
+            <span class="tag">Politecnico di Milano</span>
+            <span class="tag">3rd Place</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="project-slide" id="cert-simscape-onramp">
+      <div class="project-slide-inner">
+        <div class="project-media cert-media reveal">
+          <img class="cert-full" src="certs/cert-simscape-onramp.png" alt="MathWorks Simscape Onramp course completion certificate">
+        </div>
+        <div class="project-panel reveal">
+          <span class="project-index">08 / 09</span>
+          <h3>Simscape Onramp</h3>
+          <p>Completed 100% of MathWorks' self-paced Simscape Onramp training course.</p>
+          <div class="tag-row">
+            <span class="tag">MathWorks</span>
+            <span class="tag">Simulation</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="project-slide" id="cert-simscape-multibody">
+      <div class="project-slide-inner">
+        <div class="project-media cert-media reveal">
+          <img class="cert-full" src="certs/cert-simscape-multibody-onramp.png" alt="MathWorks Multibody Simulation Onramp course completion certificate">
+        </div>
+        <div class="project-panel reveal">
+          <span class="project-index">09 / 09</span>
+          <h3>Multibody Simulation Onramp</h3>
+          <p>Completed 100% of MathWorks' self-paced Multibody Simulation Onramp training course.</p>
+          <div class="tag-row">
+            <span class="tag">MathWorks</span>
+            <span class="tag">Multibody Dynamics</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </div>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>

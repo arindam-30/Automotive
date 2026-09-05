@@ -769,14 +769,23 @@ section h2 {
 html.force-landscape {
   overflow: hidden;
 }
+/* The desktop layout needs real room (3-column grids, wide padding) to look
+   right, but a phone's rotated width (its own portrait height) is usually
+   well under that. JS computes a reference-canvas size (--landscape-width /
+   --landscape-height) and a matching --landscape-scale so the whole rotated
+   page renders at a fixed desktop-reference width internally, then scales
+   down uniformly to exactly fit the real rotated screen instead of
+   overflowing it. Fixed-position descendants (like .project-overlay) are
+   painted through this same transform automatically, since a transformed
+   ancestor becomes their containing block. */
 html.force-landscape body {
   position: absolute;
   top: 0;
   left: 100%;
-  width: 100vh;
-  height: 100vw;
+  width: var(--landscape-width, 100vh);
+  height: var(--landscape-height, 100vw);
   transform-origin: 0 0;
-  transform: rotate(90deg);
+  transform: rotate(90deg) scale(var(--landscape-scale, 1));
   overflow-y: auto;
   overflow-x: hidden;
   -webkit-overflow-scrolling: touch;

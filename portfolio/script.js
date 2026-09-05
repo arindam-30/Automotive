@@ -153,12 +153,33 @@ const mobileStylesLink = document.getElementById('mobileStyles');
 const desktopViewToggle = document.getElementById('desktopViewToggle');
 const desktopViewExit = document.getElementById('desktopViewExit');
 
+// The desktop layout (3-column grids, wide padding) needs real room to look
+// right, but the rotated screen width (a phone's own portrait height) is
+// usually narrower than that. Render the rotated page against a fixed
+// reference-width canvas, sized so that scaling it down by `scale` reproduces
+// exactly the same final rotated bounding box the un-scaled version used
+// (real device height x real device width) -- same fit, just with desktop-
+// sized layout internally instead of content overflowing a too-narrow box.
+const LANDSCAPE_REFERENCE_WIDTH = 1024;
+
+const updateLandscapeZoom = () => {
+  if (!document.documentElement.classList.contains('force-landscape')) return;
+  const vw = window.innerWidth;
+  const vh = window.innerHeight;
+  const scale = Math.min(1, Math.max(0.5, vh / LANDSCAPE_REFERENCE_WIDTH));
+  const height = vw / scale;
+  document.documentElement.style.setProperty('--landscape-scale', scale);
+  document.documentElement.style.setProperty('--landscape-width', `${LANDSCAPE_REFERENCE_WIDTH}px`);
+  document.documentElement.style.setProperty('--landscape-height', `${height}px`);
+};
+
 const enterDesktopView = () => {
   if (mobileStylesLink.sheet) mobileStylesLink.sheet.disabled = true;
   mobileStylesLink.disabled = true;
   document.documentElement.classList.add('force-landscape');
   navLinks.classList.remove('is-open');
   navToggle.setAttribute('aria-expanded', 'false');
+  updateLandscapeZoom();
   window.scrollTo(0, 0);
   document.body.scrollTop = 0;
   updateScrollProgress();
@@ -168,6 +189,9 @@ const exitDesktopView = () => {
   mobileStylesLink.disabled = false;
   if (mobileStylesLink.sheet) mobileStylesLink.sheet.disabled = false;
   document.documentElement.classList.remove('force-landscape');
+  document.documentElement.style.removeProperty('--landscape-scale');
+  document.documentElement.style.removeProperty('--landscape-width');
+  document.documentElement.style.removeProperty('--landscape-height');
   window.scrollTo(0, 0);
   document.body.scrollTop = 0;
   updateScrollProgress();
@@ -175,3 +199,4 @@ const exitDesktopView = () => {
 
 desktopViewToggle.addEventListener('click', enterDesktopView);
 desktopViewExit.addEventListener('click', exitDesktopView);
+window.addEventListener('resize', updateLandscapeZoom);
